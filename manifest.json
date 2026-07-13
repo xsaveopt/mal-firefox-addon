@@ -5,12 +5,17 @@
   "description": "Adds a delete button to anime entries on MyAnimeList animelist pages.",
   "permissions": ["scripting"],
   "host_permissions": ["*://myanimelist.net/*"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "mal-anime-deleter@xsaveopt.github.io",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "content_scripts": [
     {
-      "matches": [
-        "*://myanimelist.net/animelist/*",
-        "*://myanimelist.net/mangalist/*"
-      ],
+      "matches": ["*://myanimelist.net/animelist/*", "*://myanimelist.net/mangalist/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
